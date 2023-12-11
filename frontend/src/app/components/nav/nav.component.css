@@ -1,0 +1,18 @@
+
+  .navbar-brand {
+    margin-right: auto; /* Move the brand/logo to the left */
+  }
+
+  .right-links {
+    display: flex;
+    align-items: right;
+  }
+
+  .auth-links {
+    margin-left: auto; /* Move the authenticated links to the right */
+  }
+  
+  body {
+    background-color: black;
+    color: white; /* Set text color to white for better visibility */
+  }

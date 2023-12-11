@@ -1,0 +1,24 @@
+<app-nav></app-nav>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="true" *ngIf="authenticated" class="custom-sidenav" role="navigation">
+    <mat-nav-list>
+      <!-- Dashboard link with icon -->
+      <a mat-list-item routerLink="/dashboard">
+        <span class="sr-only">Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/add-expense">
+        <span class="sr-only">Expenses</span>
+      </a>
+      <a mat-list-item routerLink="/add-budget">
+        <span class="sr-only">Budget</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main class="container" style="height:100vh;" role="main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

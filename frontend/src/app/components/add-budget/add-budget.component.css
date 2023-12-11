@@ -1,0 +1,26 @@
+/* In an external stylesheet or the styles section of your component */
+h3 {
+    text-align: center;
+  }
+  
+  /* Style the data cells */
+  .my-custom-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Add a border */
+  }
+  
+  /* Style the action buttons */
+  .action-button {
+    background-color: transparent;
+    color: #757575; /* Adjust the color as needed */
+    padding: 4px;
+    margin-right: 4px;
+  }
+  
+  /* Hover effect for action buttons */
+  .action-button:hover {
+    background-color: #e0e0e0; /* Adjust the background color as needed */
+    color: #000;
+  }
+  

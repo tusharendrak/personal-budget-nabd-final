@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Edit Budget</h2>
+<mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="updatedBudget.title" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Amount" [(ngModel)]="updatedBudget.amount" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="updatedBudget" cdkFocusInitial>Update Budget</button>
+</mat-dialog-actions>
+

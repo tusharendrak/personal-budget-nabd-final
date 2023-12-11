@@ -1,0 +1,14 @@
+<div class="container-fluid" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+
+    <form [formGroup]="form" (submit)="submit()" style="max-width: 400px; width: 100%; padding: 15px; text-align: center;">
+  
+      <h1 class="h3 mb-3 fw-normal">Login</h1>
+  
+      <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+      <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+      <button class="w-100 btn btn-lg btn-success" type="submit">Submit</button>
+  
+    </form>
+  
+  </div>
+  

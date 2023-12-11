@@ -1,0 +1,43 @@
+.container {
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.features,
+.characteristics,
+.tasks,
+.project-info {
+  margin-bottom: 30px;
+}
+
+.features h2,
+.characteristics h2,
+.tasks h2,
+.project-info h2 {
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.features ul,
+.characteristics ul,
+.tasks ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quick-add-button {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    font-size: 20px;
+    background-color: #630272;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}

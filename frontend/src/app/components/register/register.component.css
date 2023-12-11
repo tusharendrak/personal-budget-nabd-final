@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px; /* Adjust this value to control the form width */
+  }
+  input.form-control {
+    width: 100%; /* Full width of the form */
+    margin-bottom: 15px; /* Spacing between inputs */
+  }
+  .h3.mb-3.fw-normal {
+    text-align: center; /* Center the heading */
+  }
+  button {
+    width: 100%; /* Full width of the form */
+  }
