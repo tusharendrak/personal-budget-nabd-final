@@ -17,8 +17,8 @@ app.use(cookieParser())
 app.use(express.json())
 
 app.use("/api",routes)
-
-mongoose.connect("mongodb://127.0.0.1:27017/personal-budget-db",{
+const uri = "mongodb+srv://tendrako:NCHJs1BI8fLfVE4g@cluster0.kooda.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(uri,{
     useNewUrlParser:true,
 })
 .then(()=>{
