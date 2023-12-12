@@ -35,6 +35,16 @@ export class HomeComponent implements OnInit{
     });
 
   }
+  showAnswer: { [key: string]: boolean } = {};
+  faqs = [
+    { id: 'faq1', question: 'How do I add a new expense?', answer: 'To add a new expense, click on the \'+\' button at the bottom right of the page. This will open a dialog where you can enter the details of your expense.' },
+    { id: 'faq2', question: 'Can I set monthly budgets?', answer: 'Yes, you can set monthly budgets on the dashboard. Navigate to the \' Budget\' section, and you can create and manage your budgets there.' },
+    // Add more FAQs as needed
+  ];
+
+  toggleAnswer(faqId: string): void {
+    this.showAnswer[faqId] = !this.showAnswer[faqId];
+  }
 
   openExpenseDialog(): void {
     const dialogRef = this.dialog.open(ExpenseDialogComponent, {

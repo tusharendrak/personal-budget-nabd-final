@@ -28,14 +28,23 @@
       <li>Explore the dashboard to view financial insights</li>
       <li>Set budgets to manage your spending</li>
       <li>Log expenses to keep a detailed record</li>
+      <li>Quickly add your expenses using the icon at the bottom right</li>
     </ul>
   </section>
 
   <section>
     <h2>Project Information</h2>
-    <p>This project aims to provide users with a robust tool to manage their personal finances effectively. With a user-friendly interface and powerful features, MyBudgetApp empowers users to make informed financial decisions.</p>
+    <p>This project aims to provide users with a robust tool to manage their personal finances effectively. With a user-friendly interface and powerful features, Expense Tracker empowers users to make informed financial decisions.</p>
   </section>
 
-  <p>Quickly add your expenses using the icon at the bottom right</p>
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-question" *ngFor="let faq of faqs">
+      <h4 (click)="toggleAnswer(faq.id)">{{ faq.question }}</h4>
+      <div class="faq-answer" *ngIf="showAnswer[faq.id]">{{ faq.answer }}</div>
+    </div>
+  </section>
+
+
   <button class="quick-add-button btn btn-primary" (click)="openExpenseDialog()">+</button>
 </div>
