@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
 import { AppConstant } from 'src/app/app.constant';
+import { EditExpenseDialogComponent } from '../edit-expense-dialog/edit-expense-dialog.component';
 // import { EditExpenseDialogComponent } from '../edit-expense-dialog/edit-expense-dialog.component';
 
 @Component({
@@ -11,7 +12,7 @@ import { AppConstant } from 'src/app/app.constant';
   styleUrls: ['./add-expense.component.css']
 })
 export class AddExpenseComponent implements OnInit {
-  displayedColumns: string[] = [ 'comment','amount','budgetTitle', 'date','actions'];
+  displayedColumns: string[] = [ 'amount','budgetTitle', 'date','comment','actions'];
   expenses: any[] = [];
   monthlyExpenseData: { months: string[]; expenses: number[] };
   
@@ -70,24 +71,44 @@ export class AddExpenseComponent implements OnInit {
   }
 
 
-  // //edit a expense
-  // editExpense(updatedExpense: any): void {
-  //   this.http.put<any>(`${AppConstant.API_URL}/expenses/${updatedExpense._id}`, updatedExpense, { withCredentials: true })
-  //     .subscribe(
-  //       (data) => {
-  //         console.log('Expense updated successfully:', data);
-  //         this.getExpenses(); // Refresh the expense list after updating an expense
-  //       },
-  //       (error) => {
-  //         console.error('Error updating expense:', error);
-  //       }
-  //     );
-  // }
+  //edit a expense
+  editExpense(updatedExpense: any): void {
+    this.http.put<any>(`${AppConstant.API_URL}/expenses/${updatedExpense._id}`, updatedExpense, { withCredentials: true })
+      .subscribe(
+        (data) => {
+          console.log('Expense updated successfully:', data);
+          this.getExpenses(); // Refresh the expense list after updating an expense
+        },
+        (error) => {
+          console.error('Error updating expense:', error);
+        }
+      );
+  }
 
-    deleteExpense(expenseId: string) {
-      this.http.delete(`${AppConstant.API_URL}/expenses/${expenseId}`, {withCredentials:true}).subscribe(() => {
-        this.getExpenses();
-      });
-    }
+  openEditBudgetDialog(expense: any): void {
+    const dialogRef = this.dialog.open(EditExpenseDialogComponent, {
+      width: '300px',
+      data: { expense: expense }
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.updateExpense(result);
+      }
+    });
+  }
+
+  updateExpense(updatedExpense: any): void {
+    this.http.put(`${AppConstant.API_URL}/expenses/${updatedExpense._id}`, updatedExpense, { withCredentials: true }).subscribe(() => {
+      this.getExpenses();
+      window.location.reload();
+    });
+  }
+
+  deleteExpense(expenseId: string) {
+    this.http.delete(`${AppConstant.API_URL}/expenses/${expenseId}`, {withCredentials:true}).subscribe(() => {
+      this.getExpenses();
+    });
+  }
 
 }

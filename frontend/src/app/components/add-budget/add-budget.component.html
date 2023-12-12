@@ -1,7 +1,7 @@
 <div class="container">
   <div class="p-3" style="display: flex; justify-content: space-between; align-items: center;">
     <h3>Budget</h3>
-    <button class="btn btn-primary" (click)="openAddBudgetDialog()">Add Budget</button>
+    <button class="btn btn-primary" (click)="openAddBudgetDialog()">Add a Budget</button>
   </div>
   <p></p>
   <div class="chart-container">
@@ -11,14 +11,14 @@
 
   <table mat-table [dataSource]="budgets" class="mat-elevation-z8 my-custom-table" role="grid" style="max-width: 800px;">
 
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef role="columnheader">Cost</th>
+      <td mat-cell *matCellDef="let budget" role="gridcell">{{ budget.amount }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef role="columnheader">Category</th>
       <td mat-cell *matCellDef="let budget" role="gridcell">{{ budget.title }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef role="columnheader">Amount</th>
-      <td mat-cell *matCellDef="let budget" role="gridcell">{{ budget.amount }}</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
@@ -33,8 +33,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['title', 'amount', 'actions']" role="row"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['title', 'amount', 'actions'];" role="row"></tr>
+    <tr mat-header-row *matHeaderRowDef="['amount','title', 'actions']" role="row"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['amount','title', 'actions'];" role="row"></tr>
   </table>
   <p></p>
 

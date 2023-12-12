@@ -1,1 +1,18 @@
-<p>edit-expense-dialog works!</p>
+<h2 mat-dialog-title>Edit Expense</h2>
+<mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="newExpense.budget" name="budget" required>
+      <mat-option *ngFor="let budget of budgets" [value]="budget._id">{{ budget.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Amount" [(ngModel)]="updatedExpense.amount" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="updatedExpense" cdkFocusInitial>Update Expense</button>
+</mat-dialog-actions>
+
